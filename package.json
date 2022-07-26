@@ -1,0 +1,33 @@
+{
+  "name": "e2e-react-adapter",
+  "version": "0.1.1",
+  "license": "MIT",
+  "description": "Adapter for Solana end-to-end tests. Injects a programmatic wallet in you dapp.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "check-deps": "npx check-peer-dependencies --yarn",
+    "install-deps": "npx check-peer-dependencies --install"
+  },
+  "peerDependencies": {
+    "@solana/wallet-adapter-wallets": "^0.16.8",
+    "@solana/web3.js": "^1.50.0"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.9",
+    "@solana/wallet-adapter-wallets": "0.16.8",
+    "@solana/web3.js": "1.50.0",
+    "@types/jest": "^28.1.6",
+    "babel-jest": "^28.1.3",
+    "jest": "^28.1.3",
+    "jest-environment-jsdom": "^28.1.3",
+    "ts-jest": "^28.0.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
+  }
+}
