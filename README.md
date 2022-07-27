@@ -1,8 +1,8 @@
-# @jet-lab/e2e-wallet-adapter
+# @jet-lab/e2e-react-adapter
 
 ## What is it?
 
-@jetlab/e2e-wallet-adapter is a test adapter for solana decentralised applications. It allows to interact with your application without having to go through a browser extension, this in turn enables end-to-end testing. It also allows to programmatically reject transaction, so you can test the sad paths too.
+@jetlab/e2e-react-adapter is a test adapter for solana decentralised applications. It allows to interact with your application without having to go through a browser extension, this in turn enables end-to-end testing. It also allows to programmatically reject transaction, so you can test the sad paths too.
 
 ## Why?
 
@@ -10,7 +10,7 @@ We have found difficult to integrate a solid end-to-end test suite by using what
 
 ## Installation
 
-To install: `yarn add @jet-lab/e2e-wallet-adapter` or `npm -i @jet-lab/e2e-wallet-adapter`
+To install: `yarn add @jet-lab/e2e-react-adapter` or `npm -i @jet-lab/e2e-react-adapter`
 
 ## Usage
 
