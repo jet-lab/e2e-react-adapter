@@ -1,6 +1,6 @@
 {
   "name": "@jet-lab/e2e-react-adapter",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "description": "Adapter for Solana end-to-end tests. Injects a programmatic wallet in you dapp.",
   "main": "dist/index.js",
