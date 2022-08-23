@@ -134,7 +134,9 @@ export class E2EWalletAdapter extends BaseWalletAdapter {
     transactions: Transaction[]
   ): Promise<Transaction[]> {
     this._checkForReject();
-    transactions.map((tx) => tx.sign(this._underlyingWallet));
-    return [];
+    for (let i=0; i < transactions.length; i++) {
+      transactions[i].sign(this._underlyingWallet);
+    }
+    return transactions;
   }
 }
