@@ -1,5 +1,8 @@
 import { Keypair, PublicKey, Transaction, Connection } from "@solana/web3.js";
 import { E2EWalletAdapter, E2EWindow } from "../src/index";
+import nacl from "tweetnacl";
+import bs58 from "bs58";
+import { TextEncoder } from "util";
 
 describe("E2EWalletAdapter", () => {
   const connection = new Connection("https://api.devnet.solana.com");
@@ -127,5 +130,19 @@ describe("E2EWalletAdapter", () => {
       [adapter._underlyingWallet]
     );
     expect(signatureTwo).toBe("test-signature");
+  });
+
+  it("should be able to sign a message", async () => {
+    const config = { keypair: new Keypair() };
+    const adapter = new E2EWalletAdapter(config);
+    adapter.connect();
+    const message = new TextEncoder().encode("test message");
+    const signature = await adapter.signMessage(message);
+    const verified = nacl.sign.detached.verify(
+      message,
+      signature,
+      bs58.decode(config.keypair.publicKey.toBase58())
+    );
+    expect(verified).toBe(true);
   });
 });
