@@ -13,6 +13,7 @@ import {
   Transaction,
   TransactionSignature,
 } from "@solana/web3.js";
+import nacl from "tweetnacl";
 
 interface E2EWalletEvents {
   connect(...args: unknown[]): unknown;
@@ -134,9 +135,13 @@ export class E2EWalletAdapter extends BaseWalletAdapter {
     transactions: Transaction[]
   ): Promise<Transaction[]> {
     this._checkForReject();
-    for (let i=0; i < transactions.length; i++) {
+    for (let i = 0; i < transactions.length; i++) {
       transactions[i].sign(this._underlyingWallet);
     }
     return transactions;
+  }
+
+  async signMessage(message: Uint8Array): Promise<Uint8Array> {
+    return nacl.sign.detached(message, this._underlyingWallet.secretKey);
   }
 }
